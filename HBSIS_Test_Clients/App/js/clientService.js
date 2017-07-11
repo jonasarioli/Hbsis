@@ -1,5 +1,5 @@
 ﻿(function (app) {
-    var clienteService = function ($http, clienteApiUrl) {
+    var clientService = function ($http, clienteApiUrl) {
 
         var getclientes = function () {
             return $http.get(clienteApiUrl);
@@ -17,12 +17,12 @@
             return $http.delete(clienteApiUrl + cliente.Id);
         };
         return {
-            getclientes: getclientes,
-            getclientePorId: getclientePorId,
+            getClientes: getclientes,
+            getClientePorId: getclientePorId,
             atualizar: atualizar,
             criar: criar,
             deletar: deletar
         };
     };
-    app.factory("clienteService", clienteService);
+    app.factory("clientService", clientService);
 }(angular.module("app")))

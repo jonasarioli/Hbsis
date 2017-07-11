@@ -216,6 +216,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientRegistryContext.cs" />
+    <Compile Include="Models\IClientRegistryContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +225,8 @@
     <Content Include="App\js\clientes.js" />
     <Content Include="App\js\clientService.js" />
     <Content Include="App\js\detalhesController.js" />
+    <Content Include="App\js\editaController.js" />
+    <Content Include="App\js\format.js" />
     <Content Include="App\js\listaController.js" />
     <Content Include="App_Data\BaseDeDados.mdf" />
     <Content Include="App_Data\BaseDeDados_log.ldf">
@@ -230,6 +234,7 @@
     </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Cliente\html\detalhes.html" />
+    <Content Include="Cliente\html\edita.html" />
     <Content Include="Cliente\html\lista.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

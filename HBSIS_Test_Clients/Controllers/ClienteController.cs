@@ -14,7 +14,17 @@ namespace HBSIS_Test_Clients.Controllers
 {
     public class ClienteController : ApiController
     {
-        private DBEntities db = new DBEntities();
+        // modify the type of the db field
+        // Using IoC, to test the EntityFramework
+        private IClientRegistryContext db = new ClientRegistryContext();
+
+        // add these contructors
+        public ClienteController() { }
+
+        public ClienteController(IClientRegistryContext context)
+        {
+            db = context;
+        }
 
         // GET: api/Cliente
         public IQueryable<Clientes> GetClientes()
@@ -49,7 +59,8 @@ namespace HBSIS_Test_Clients.Controllers
                 return BadRequest();
             }
 
-            db.Entry(clientes).State = EntityState.Modified;
+            //db.Entry(clientes).State = EntityState.Modified;
+            db.MarkAsModified(clientes);
 
             try
             {

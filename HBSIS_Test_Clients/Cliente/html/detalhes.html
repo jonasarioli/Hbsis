@@ -11,6 +11,7 @@
     <div>
         <h3>Telefone : {{cliente.Telefone}}</h3>
     </div>
-    <hr />
-    <a href="#/">Lista</a>
+    <a class="btn btn-primary" ng-click="editar()"> Editar</a>
+    <a class="btn btn-success" href="#/">Retorna</a>
+    <div ng-include="'/Cliente/html/edita.html'"></div>
 </div>

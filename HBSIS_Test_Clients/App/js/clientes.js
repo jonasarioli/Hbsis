@@ -10,4 +10,6 @@
                { redirecTo: "/" });
     };
     app.config(config);
+
+    app.constant("clienteApiUrl", "/api/cliente/");
 }());
