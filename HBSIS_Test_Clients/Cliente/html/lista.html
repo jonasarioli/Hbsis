@@ -1,0 +1,14 @@
+﻿<div ng-app="app" ng-controller="listaController">
+    <table class="table">
+        <tr>
+            <th>Nome</th>
+        </tr>
+        <tr ng-repeat="cliente in clientes">
+            <td>{{cliente.Nome}}</td>
+            <td>
+                <a href="#/html/detalhes/{{cliente.Id}}">Detalhes</a>
+                <button class="btn btn-danger" ng-click="deleta(cliente)">Deletar</button>
+            </td>
+        </tr>
+    </table>
+</div>
