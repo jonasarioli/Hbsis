@@ -7,6 +7,7 @@ Foram feitos testes unitarios para testes no controlador.
 Não consegui fazer os testes unitarios para o Angular.
 
 Pontos de melhoria:
+- Mostrar erros na interface
 - Adicionar segurança de acesso
 - Migrar para o Angular 2 ou mais recente
 - Fazer o deploy da aplicação em um Container, se pensando como um Micro serviço para um serviço de clientes, a ser usado em uma aplicação maior
