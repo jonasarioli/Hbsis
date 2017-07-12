@@ -7,14 +7,14 @@ using System.Web;
 
 namespace HBSIS_Test_Clients.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<ClientRegistryContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DBEntities>
     {
         public Configuration()
         {
             this.AutomaticMigrationDataLossAllowed = true;
             this.AutomaticMigrationsEnabled = false;
         }
-        protected override void Seed(ClientRegistryContext context)
+        protected override void Seed(DBEntities context)
         {
             //  This method will be called after migrating to the latest version.
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

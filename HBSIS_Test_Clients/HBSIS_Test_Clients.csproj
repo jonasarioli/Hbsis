@@ -216,8 +216,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\ClientRegistryContext.cs" />
-    <Compile Include="Models\IClientRegistryContext.cs" />
+    <Compile Include="Models\IDBEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,12 +16,12 @@ namespace HBSIS_Test_Clients.Controllers
     {
         // modify the type of the db field
         // Using IoC, to test the EntityFramework
-        private IClientRegistryContext db = new ClientRegistryContext();
+        private IDBEntities db = new DBEntities();
 
         // add these contructors
         public ClienteController() { }
 
-        public ClienteController(IClientRegistryContext context)
+        public ClienteController(IDBEntities context)
         {
             db = context;
         }
@@ -89,6 +89,9 @@ namespace HBSIS_Test_Clients.Controllers
             {
                 return BadRequest(ModelState);
             }
+            
+            clientes.Id = (from f in db.Clientes
+                           select f.Id).Max() + 1;
 
             db.Clientes.Add(clientes);
 

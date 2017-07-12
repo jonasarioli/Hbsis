@@ -16,15 +16,15 @@
         };
         var atualizaCliente = function () {
             clientService.atualizar($scope.editar.cliente)
-            .success(function () {
+            .then(function () {
                 angular.extend($scope.cliente, $scope.editar.cliente);
                 $scope.editar.cliente = null;
             });
         };
         var criaCliente = function () {
             clientService.criar($scope.editar.cliente)
-            .success(function (cliente) {
-                $scope.clientes.push(cliente);
+            .then(function (cliente) {
+                $scope.clientes.push(cliente.data);
                 $scope.editar.cliente = null;
             });
         };

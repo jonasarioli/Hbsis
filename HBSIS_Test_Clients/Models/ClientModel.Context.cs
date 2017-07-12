@@ -13,7 +13,7 @@ namespace HBSIS_Test_Clients.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBEntities : DbContext
+    public partial class DBEntities : DbContext, IDBEntities
     {
         public DBEntities()
             : base("name=DBEntities")
@@ -24,7 +24,12 @@ namespace HBSIS_Test_Clients.Models
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
+        public void MarkAsModified(Clientes item)
+        {
+            Entry(item).State = EntityState.Modified;
+        }
+
         public virtual DbSet<Clientes> Clientes { get; set; }
     }
 }

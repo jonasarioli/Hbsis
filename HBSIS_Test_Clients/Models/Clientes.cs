@@ -9,9 +9,9 @@
 
 namespace HBSIS_Test_Clients.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Clientes
     {
         public int Id { get; set; }

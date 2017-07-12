@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace HBSIS_Test_Clients.Tests.Models
 {
-    public class TestClientRegistryContext : IClientRegistryContext
+    public class TestClientRegistryContext : IDBEntities
     {
         public TestClientRegistryContext()
         {

@@ -3,12 +3,12 @@
         var id = $routeParams.id;
         clientService
             .getClientePorId(id)
-            .success(function (data) {
-                $scope.cliente = data;
+            .then(function (data) {
+                $scope.cliente = data.data;
             });
 
         $scope.editar = function () {
-            $scope.editar.filme = angular.copy($scope.filme);
+            $scope.editar.cliente = angular.copy($scope.cliente);
         };
     };
     app.controller("detalhesController", detalhesController)

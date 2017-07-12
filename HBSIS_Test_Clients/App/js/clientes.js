@@ -3,11 +3,12 @@
     var config = function ($routeProvider) {
         $routeProvider
         .when("/",
-               { templateUrl: "/cliente/html/lista.html", controller: "listaController" })
+               { templateUrl: "/cliente/html/lista.html"})
         .when("/detalhes/:id",
-               { templateUrl: "/cliente/html/detalhes.html", controller: "detalhesController" })
+               { templateUrl: "/cliente/html/detalhes.html"})
         .otherwise(
                { redirecTo: "/" });
+
     };
     app.config(config);
 

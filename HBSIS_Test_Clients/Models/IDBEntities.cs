@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HBSIS_Test_Clients.Models
 {
-    public interface IClientRegistryContext : IDisposable
+    public interface IDBEntities : IDisposable
     {
         DbSet<Clientes> Clientes { get; }
         int SaveChanges();
