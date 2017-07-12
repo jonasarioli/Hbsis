@@ -157,7 +157,11 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201707121743492_ModelDeDadosMigration.resx">
+      <DependentUpon>201707121743492_ModelDeDadosMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -197,26 +201,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707121743492_ModelDeDadosMigration.cs" />
+    <Compile Include="Migrations\201707121743492_ModelDeDadosMigration.Designer.cs">
+      <DependentUpon>201707121743492_ModelDeDadosMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Clientes.cs">
-      <DependentUpon>ClientModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClientModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClientModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ClientModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClientModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\IDBEntities.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\IModeloDados.cs" />
+    <Compile Include="Models\ModeloDados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,16 +232,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\ClientModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClientModel.edmx</DependentUpon>
-      <LastGenOutput>ClientModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ClientModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClientModel.edmx</DependentUpon>
-      <LastGenOutput>ClientModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -280,13 +262,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
-    <EntityDeploy Include="Models\ClientModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClientModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ClientModel.edmx.diagram">
-      <DependentUpon>ClientModel.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

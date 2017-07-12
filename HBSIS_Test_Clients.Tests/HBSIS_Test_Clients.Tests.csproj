@@ -101,7 +101,7 @@
   <ItemGroup>
     <Compile Include="Controllers\TestClientController.cs" />
     <Compile Include="Models\TestClientDbSet .cs" />
-    <Compile Include="Models\TestClientRegistryContext.cs" />
+    <Compile Include="Models\TestModeloDados.cs" />
     <Compile Include="Models\TestDbSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />

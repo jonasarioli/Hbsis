@@ -8,18 +8,18 @@ using System.Data.Entity;
 
 namespace HBSIS_Test_Clients.Tests.Models
 {
-    public class TestClientRegistryContext : IDBEntities
+    public class TestModeloDados : IModeloDados
     {
-        public TestClientRegistryContext()
+        public TestModeloDados()
         {
             this.Clientes = new TestClientDbSet();
         }
 
-        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         public void Dispose() { }
 
-        public void MarkAsModified(Clientes item) { }
+        public void MarkAsModified(Cliente item) { }
 
         public int SaveChanges()
         {

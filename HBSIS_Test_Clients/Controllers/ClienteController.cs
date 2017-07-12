@@ -16,27 +16,27 @@ namespace HBSIS_Test_Clients.Controllers
     {
         // modify the type of the db field
         // Using IoC, to test the EntityFramework
-        private IDBEntities db = new DBEntities();
+        private IModeloDados db = new ModeloDados();
 
         // add these contructors
         public ClienteController() { }
 
-        public ClienteController(IDBEntities context)
+        public ClienteController(IModeloDados context)
         {
             db = context;
         }
 
         // GET: api/Cliente
-        public IQueryable<Clientes> GetClientes()
+        public IQueryable<Cliente> GetClientes()
         {
             return db.Clientes;
         }
 
         // GET: api/Cliente/5
-        [ResponseType(typeof(Clientes))]
+        [ResponseType(typeof(Cliente))]
         public IHttpActionResult GetClientes(int id)
         {
-            Clientes clientes = db.Clientes.Find(id);
+            Cliente clientes = db.Clientes.Find(id);
             if (clientes == null)
             {
                 return NotFound();
@@ -47,20 +47,20 @@ namespace HBSIS_Test_Clients.Controllers
 
         // PUT: api/Cliente/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutClientes(int id, Clientes clientes)
+        public IHttpActionResult PutClientes(int id, Cliente cliente)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != clientes.Id)
+            if (id != cliente.Id)
             {
                 return BadRequest();
             }
 
             //db.Entry(clientes).State = EntityState.Modified;
-            db.MarkAsModified(clientes);
+            db.MarkAsModified(cliente);
 
             try
             {
@@ -82,18 +82,17 @@ namespace HBSIS_Test_Clients.Controllers
         }
 
         // POST: api/Cliente
-        [ResponseType(typeof(Clientes))]
-        public IHttpActionResult PostClientes(Clientes clientes)
+        [ResponseType(typeof(Cliente))]
+        public IHttpActionResult PostClientes(Cliente cliente)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             
-            clientes.Id = (from f in db.Clientes
-                           select f.Id).Max() + 1;
+            
 
-            db.Clientes.Add(clientes);
+            db.Clientes.Add(cliente);
 
             try
             {
@@ -101,7 +100,7 @@ namespace HBSIS_Test_Clients.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ClientesExists(clientes.Id))
+                if (ClientesExists(cliente.Id))
                 {
                     return Conflict();
                 }
@@ -111,14 +110,14 @@ namespace HBSIS_Test_Clients.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = clientes.Id }, clientes);
+            return CreatedAtRoute("DefaultApi", new { id = cliente.Id }, cliente);
         }
 
         // DELETE: api/Cliente/5
-        [ResponseType(typeof(Clientes))]
+        [ResponseType(typeof(Cliente))]
         public IHttpActionResult DeleteClientes(int id)
         {
-            Clientes clientes = db.Clientes.Find(id);
+            Cliente clientes = db.Clientes.Find(id);
             if (clientes == null)
             {
                 return NotFound();

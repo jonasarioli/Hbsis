@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace HBSIS_Test_Clients.Models
 {
-    public interface IDBEntities : IDisposable
+    public interface IModeloDados : IDisposable
     {
-        DbSet<Clientes> Clientes { get; }
+        DbSet<Cliente> Clientes { get; }
         int SaveChanges();
-        void MarkAsModified(Clientes item);
+        void MarkAsModified(Cliente item);
     }
 }

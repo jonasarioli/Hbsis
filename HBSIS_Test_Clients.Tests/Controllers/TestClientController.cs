@@ -13,7 +13,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void PostClientes_ShouldReturnSameClient()
         {
-            var controller = new ClienteController(new TestClientRegistryContext());
+            var controller = new ClienteController(new TestModeloDados());
 
             var item = GetDemoCliente();
 
@@ -30,7 +30,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void PutClientes_ShouldReturnStatusCode()
         {
-            var controller = new ClienteController(new TestClientRegistryContext());
+            var controller = new ClienteController(new TestModeloDados());
 
             var item = GetDemoCliente();
 
@@ -43,7 +43,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void PutCliente_ShouldFail_WhenDifferentID()
         {
-            var controller = new ClienteController(new TestClientRegistryContext());
+            var controller = new ClienteController(new TestModeloDados());
 
             var badresult = controller.PutClientes(999, GetDemoCliente());
             Assert.IsInstanceOfType(badresult, typeof(BadRequestResult));
@@ -52,7 +52,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void GetCliente_ShouldReturnClienteWithSameID()
         {
-            var context = new TestClientRegistryContext();
+            var context = new TestModeloDados();
             context.Clientes.Add(GetDemoCliente());
 
             var controller = new ClienteController(context);
@@ -65,7 +65,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void GetClientes_ShouldReturnAllClientes()
         {
-            var context = new TestClientRegistryContext();
+            var context = new TestModeloDados();
             context.Clientes.Add(new Clientes { Id = 1, Nome = "Demo1", Codigo = "20", Telefone = "(99) 9999-9999", Documento = "999.999.999-99" });
             context.Clientes.Add(new Clientes { Id = 2, Nome = "Demo2", Codigo = "30", Telefone = "(88) 8888-8888", Documento = "888.888.888-88" });
             context.Clientes.Add(new Clientes { Id = 3, Nome = "Demo3", Codigo = "40", Telefone = "(77) 7777-7777", Documento = "777.777.777-77" });
@@ -80,7 +80,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         [TestMethod]
         public void DeleteCliente_ShouldReturnOK()
         {
-            var context = new TestClientRegistryContext();
+            var context = new TestModeloDados();
             var item = GetDemoCliente();
             context.Clientes.Add(item);
 

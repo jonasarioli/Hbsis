@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace HBSIS_Test_Clients.Tests.Models
 {
-    class TestClientDbSet : TestDbSet<Clientes>
+    class TestClientDbSet : TestDbSet<Cliente>
     {
-        public override Clientes Find(params object[] keyValues)
+        public override Cliente Find(params object[] keyValues)
         {
             return this.SingleOrDefault(cliente => cliente.Id == (int)keyValues.Single());
         }
