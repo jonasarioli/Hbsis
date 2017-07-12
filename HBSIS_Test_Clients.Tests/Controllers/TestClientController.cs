@@ -18,7 +18,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
             var item = GetDemoCliente();
 
             var result =
-                controller.PostClientes(item) as CreatedAtRouteNegotiatedContentResult<Clientes>;
+                controller.PostClientes(item) as CreatedAtRouteNegotiatedContentResult<Cliente>;
 
             Assert.IsNotNull(result);
             Assert.AreEqual(result.RouteName, "DefaultApi");
@@ -56,7 +56,7 @@ namespace HBSIS_Test_Clients.Tests.Controllers
             context.Clientes.Add(GetDemoCliente());
 
             var controller = new ClienteController(context);
-            var result = controller.GetClientes(3) as OkNegotiatedContentResult<Clientes>;
+            var result = controller.GetClientes(3) as OkNegotiatedContentResult<Cliente>;
 
             Assert.IsNotNull(result);
             Assert.AreEqual(3, result.Content.Id);
@@ -66,9 +66,9 @@ namespace HBSIS_Test_Clients.Tests.Controllers
         public void GetClientes_ShouldReturnAllClientes()
         {
             var context = new TestModeloDados();
-            context.Clientes.Add(new Clientes { Id = 1, Nome = "Demo1", Codigo = "20", Telefone = "(99) 9999-9999", Documento = "999.999.999-99" });
-            context.Clientes.Add(new Clientes { Id = 2, Nome = "Demo2", Codigo = "30", Telefone = "(88) 8888-8888", Documento = "888.888.888-88" });
-            context.Clientes.Add(new Clientes { Id = 3, Nome = "Demo3", Codigo = "40", Telefone = "(77) 7777-7777", Documento = "777.777.777-77" });
+            context.Clientes.Add(new Cliente { Id = 1, Nome = "Demo1", Codigo = "20", Telefone = "(99) 9999-9999", Documento = "999.999.999-99" });
+            context.Clientes.Add(new Cliente { Id = 2, Nome = "Demo2", Codigo = "30", Telefone = "(88) 8888-8888", Documento = "888.888.888-88" });
+            context.Clientes.Add(new Cliente { Id = 3, Nome = "Demo3", Codigo = "40", Telefone = "(77) 7777-7777", Documento = "777.777.777-77" });
 
             var controller = new ClienteController(context);
             var result = controller.GetClientes() as TestClientDbSet;
@@ -85,15 +85,15 @@ namespace HBSIS_Test_Clients.Tests.Controllers
             context.Clientes.Add(item);
 
             var controller = new ClienteController(context);
-            var result = controller.DeleteClientes(3) as OkNegotiatedContentResult<Clientes>;
+            var result = controller.DeleteClientes(3) as OkNegotiatedContentResult<Cliente>;
 
             Assert.IsNotNull(result);
             Assert.AreEqual(item.Id, result.Content.Id);
         }
 
-        Clientes GetDemoCliente()
+        Cliente GetDemoCliente()
         {
-            return new Clientes() { Id = 3, Nome = "Demo name", Codigo = "5", Telefone = "(55) 5555-5555", Documento = "555.555.555-55" };
+            return new Cliente() { Id = 3, Nome = "Demo name", Codigo = "5", Telefone = "(55) 5555-5555", Documento = "555.555.555-55" };
         }
     }
 }
