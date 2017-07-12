@@ -7,7 +7,10 @@ Foram feitos testes unitarios para testes no controlador.
 Não consegui fazer os testes unitarios para o Angular.
 
 Pontos de melhoria:
-- Mostrar erros na interface
+- Mostrar erros na UI, quando o caso de sucesso não ocorrer
+- Validar se o CPF e CNPJ são validos
+- Validar se o telefone é valido
+- Validar campos obrigatorios
 - Adicionar segurança de acesso
 - Migrar para o Angular 2 ou mais recente
 - Fazer o deploy da aplicação em um Container, se pensando como um Micro serviço para um serviço de clientes, a ser usado em uma aplicação maior
